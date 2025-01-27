@@ -27,7 +27,7 @@
 <meta property="og:description" content="该加训力！这场比赛鉴定为我的鸣潮练度提升200%导致的ACM水平下降了1e9+7倍，而其他人却稳定提升2e5+5倍前言：牛牛训练营1第一场只写出四道题，其中一些题的罚时因为一些浅显的错误WA了好几发实在是太可惜了。下面就从我做出的四题AC的顺序开始分析，然后再进行补题。 签到题：D G B A； D题：题面如下： 小红拿到了一个数组，她可以进行任意次以下操作：选择两个元素，使得其中一个加 1，另一">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-01-22T10:34:57.000Z">
-<meta property="article:modified_time" content="2025-01-25T06:01:24.528Z">
+<meta property="article:modified_time" content="2025-01-27T01:34:38.720Z">
 <meta property="article:author" content="Bai_qiuyue">
 <meta property="article:tag" content="ACM">
 <meta name="twitter:card" content="summary_large_image">
@@ -294,7 +294,8 @@
 <p>我们观察题目，发现小红的操作并不会使数组中数的总和改变，这意味着只有当原数组的总和等于1+2+…+n时才能进行下一步（否则直接输出-1）。然后我们对数组进行排序。我们知道这个数组修改后必定会包含{1，2，…，n}这些元素，我们不妨设我们的数组就是{1，2，…，n}。故我们排序后直接对排序后的数组减去i的绝对值进行++++++。输出cnt/2即可。（因为一加一减是一次操作，我们进行上述的操作时，对整体求的是两倍）</p>
 <p>Code：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    ll sum=<span class="hljs-number">0</span>;<br>    ll n;<br>    cin&gt;&gt;n;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>        cin&gt;&gt;a[i];<br>        sum+=a[i];<br>    &#125;<br>    ll pd=n*(n<span class="hljs-number">+1</span>)/<span class="hljs-number">2</span>;<span class="hljs-comment">//求等差数列公式</span><br>    <span class="hljs-keyword">if</span>(sum!=pd)&#123;<br>        cout&lt;&lt;<span class="hljs-string">&quot;-1&quot;</span>&lt;&lt;endl;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>    ll cnt=<span class="hljs-number">0</span>;<br>    <span class="hljs-built_in">sort</span>(a<span class="hljs-number">+1</span>,a+n<span class="hljs-number">+1</span>);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>        cnt+=<span class="hljs-built_in">abs</span>(a[i]-i);<br>    &#125;<br>    cout&lt;&lt;cnt/<span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h1 id="切记切记要开龙龙！！不然会爆int！！！！"><a href="#切记切记要开龙龙！！不然会爆int！！！！" class="headerlink" title="切记切记要开龙龙！！不然会爆int！！！！"></a>切记切记要开龙龙！！不然会爆int！！！！</h1><h2 id="B题："><a href="#B题：" class="headerlink" title="B题："></a>B题：</h2><p>题面如下：</p>
+<p><strong>切记切记要开龙龙！！不然会爆int！！！！</strong></p>
+<h2 id="B题："><a href="#B题：" class="headerlink" title="B题："></a>B题：</h2><p>题面如下：</p>
 <p>小红拿到了一棵树，她想请你寻找一条简单路径，使得这条路径不重不漏的经过所有节点。如果不存在这样的简单路径，则直接输出 −1。  </p>
 <p>简单路径是指这样一条路径，其经过的顶点和边互不相同。</p>
 <p>分析：</p>
